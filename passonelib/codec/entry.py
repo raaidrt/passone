@@ -63,3 +63,6 @@ class Entry:
         return Entry(values['account_name'], values['url'], values['username'], values['password'])
     def __repr__(self) -> str:
         return f"Entry[account_name={self.account_name},url={self.url},username={self.username},password={self.password}]"
+    def __eq__(self, other : 'Entry') -> bool:
+        if not isinstance(other, Entry): return False
+        return self.account_name == other.account_name and self.url == other.url and self.username == other.username and self.password == other.password
